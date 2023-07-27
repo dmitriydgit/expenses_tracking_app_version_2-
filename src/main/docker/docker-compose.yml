@@ -1,0 +1,18 @@
+version: "3.7"
+
+services:
+  mydatabase:
+    container_name: "mydatabase"
+    image: "postgres:15.2"
+    environment:
+      - POSTGRES_DB=mydatabase
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=test
+    ports:
+      - "9055:5432"
+    restart: unless-stopped
+    volumes:
+      - mydatabase:/var/lib/postgresql/data
+
+volumes:
+  mydatabase:
